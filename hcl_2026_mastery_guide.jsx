@@ -670,7 +670,6 @@ function Coding({ progress, onSolved }) {
   return (
     <div className="stack">
       <section className="card">
-        <h3>Shortlist from your TCS coding sheet</h3>
         <div className="table-wrap">
           <table>
             <thead><tr><th>Sheet #</th><th>Problem</th><th>Topic</th><th>Difficulty</th><th>HCL fit</th><th>In bank</th></tr></thead>
