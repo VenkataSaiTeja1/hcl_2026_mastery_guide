@@ -520,25 +520,6 @@ function Overview({ stats, onNavigate }) {
         </div>
       </section>
 
-      <section className="grid2">
-        {PATTERN_FACTS.map((f) => (
-          <div key={f.k} className="fact">
-            <div className="fact-k">{f.k}</div>
-            <div className="fact-v">{f.v}</div>
-            <div className="fact-why"><Pill {...CONF_META[f.conf]}>{CONF_META[f.conf].label}</Pill> {f.why}</div>
-          </div>
-        ))}
-      </section>
-
-      <section className="card">
-        <h3>How to read the tags on each question</h3>
-        <div className="legend">
-          {Object.entries(CONF_META).map(([k, m]) => <div key={k}><Pill fg={m.fg} bg={m.bg}>Pattern: {m.label}</Pill> {m.desc}</div>)}
-          {Object.entries(SRC_META).map(([k, m]) => <div key={k}><Pill fg={m.fg} bg={m.bg}>{k}</Pill> {m.desc}</div>)}
-          <div><b>⏱ Time</b> — recommended time to solve: Easy 45 s, Medium 60 s, Hard 90 s; +15 s for code snippets, +30 s for passages. The real test allows about 60 s per question. Coding problems: Easy 10 min, Medium 20 min.</div>
-        </div>
-      </section>
-
       <section className="grid4">
         {CATS.map((c) => (
           <div key={c.id} className="statcard" style={{ borderTopColor: c.color }}>
@@ -549,13 +530,6 @@ function Overview({ stats, onNavigate }) {
             <div className="muted small">{stats[c.id].correct} correct</div>
           </div>
         ))}
-      </section>
-
-      <section className="card">
-        <h3>Sources</h3>
-        <ul className="sources">
-          {SOURCES.map(([t, u]) => <li key={u}><a href={u} target="_blank" rel="noreferrer">{t}</a></li>)}
-        </ul>
       </section>
     </div>
   );
@@ -695,13 +669,8 @@ function MockTest() {
 function Coding({ progress, onSolved }) {
   return (
     <div className="stack">
-      <section className="card warn">
-        <h3>Is there a coding round?</h3>
-        <p>It depends on the role. FACE Prep's "standard" four-section test has <b>no live coding</b>, while PlacementPreparation, Mockstep and Jobsnet report <b>2 problems in 20–45 min</b> (Easy–Medium: arrays, strings, hash maps). Prepare the <b>Core</b> list regardless: it also covers the live-coding part of the technical interview. The three <b>Skip</b> items are listed for completeness and are not part of the bank.</p>
-      </section>
       <section className="card">
         <h3>Shortlist from your TCS coding sheet</h3>
-        <div className="legend">{Object.entries(FIT_META).map(([k, m]) => <div key={k}><Pill fg={m.fg} bg={m.bg}>{k}</Pill> {m.desc}</div>)}</div>
         <div className="table-wrap">
           <table>
             <thead><tr><th>Sheet #</th><th>Problem</th><th>Topic</th><th>Difficulty</th><th>HCL fit</th><th>In bank</th></tr></thead>
